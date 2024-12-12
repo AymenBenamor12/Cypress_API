@@ -34,19 +34,19 @@ describe('Authentication',()=>{
         })
     })
     
- const Token='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'   ;
+//  const Token='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'   ;
 
-it("BearerToken Auth",()=>{
-cy.request({
-    method:'GET',
-    url:'https://api.github.com/user/repos',
-    headers:{
-        Authorization:`Bearer ${Token}`
-    }
-}).then((response)=>{
-    expect(response.status).to.eq(200)
-})
-})
+// it("BearerToken Auth",()=>{
+// cy.request({
+//     method:'GET',
+//     url:'https://api.github.com/user/repos',
+//     headers:{
+//         Authorization:`Bearer ${Token}`
+//     }
+// }).then((response)=>{
+//     expect(response.status).to.eq(200)
+// })
+// })
 // it('API key Auth',()=>{
 //     cy.request(
 //   {

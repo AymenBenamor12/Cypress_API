@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-12-12T21:47:20.175Z",
+    "end": "2024-12-12T21:47:21.625Z",
+    "duration": 1450,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c956a0cd-53d5-4a0c-9892-622636a84a91",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\Authentication.cy.js",
+      "file": "cypress\\e2e\\APITesting\\Authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e19302dd-e37c-40af-83fd-43a2e19440db",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "basic Authentication",
+              "fullTitle": "Authentication basic Authentication",
+              "timedOut": null,
+              "duration": 564,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://postman-echo.com/basic-auth',\n  auth: {\n    user: 'postman',\n    pass: 'password'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.authenticated).to.eq(true);\n});",
+              "err": {},
+              "uuid": "8703f40b-6e35-48c5-a922-6a0b62655ec3",
+              "parentUUID": "e19302dd-e37c-40af-83fd-43a2e19440db",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Digest Authentication",
+              "fullTitle": "Authentication Digest Authentication",
+              "timedOut": null,
+              "duration": 135,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://postman-echo.com/basic-auth',\n  auth: {\n    username: 'postman',\n    password: 'password',\n    method: 'degest'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.authenticated).to.eq(true);\n});",
+              "err": {},
+              "uuid": "b99521d2-1807-432b-97a3-49f7a98f25d6",
+              "parentUUID": "e19302dd-e37c-40af-83fd-43a2e19440db",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "BearerToken Auth",
+              "fullTitle": "Authentication BearerToken Auth",
+              "timedOut": null,
+              "duration": 602,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://api.github.com/user/repos',\n  headers: {\n    Authorization: `Bearer ${Token}`\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://api.github.com/user/repos\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://api.github.com/user/repos\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer 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\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.16.1 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Thu, 12 Dec 2024 21:47:19 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"109\",\n  \"x-github-media-type\": \"github.v3; format=json\",\n  \"x-ratelimit-limit\": \"60\",\n  \"x-ratelimit-remaining\": \"58\",\n  \"x-ratelimit-reset\": \"1734043412\",\n  \"x-ratelimit-used\": \"2\",\n  \"x-ratelimit-resource\": \"core\",\n  \"access-control-expose-headers\": \"ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset\",\n  \"access-control-allow-origin\": \"*\",\n  \"strict-transport-security\": \"max-age=31536000; includeSubdomains; preload\",\n  \"x-frame-options\": \"deny\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-xss-protection\": \"0\",\n  \"referrer-policy\": \"origin-when-cross-origin, strict-origin-when-cross-origin\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"vary\": \"Accept-Encoding, Accept, X-Requested-With\",\n  \"server\": \"github.com\",\n  \"x-github-request-id\": \"9234:F7B7E:4CBBDF:4F6AA8:675B59E7\"\n}\nBody: {\n  \"message\": \"Bad credentials\",\n  \"documentation_url\": \"https://docs.github.com/rest\",\n  \"status\": \"401\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://api.github.com/user/repos\n\nThe response we received from your web server was:\n\n  > 401: Unauthorized\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: GET\nURL: https://api.github.com/user/repos\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"Authorization\": \"Bearer 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\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.16.1 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\"\n}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 401 - Unauthorized\nHeaders: {\n  \"date\": \"Thu, 12 Dec 2024 21:47:19 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"109\",\n  \"x-github-media-type\": \"github.v3; format=json\",\n  \"x-ratelimit-limit\": \"60\",\n  \"x-ratelimit-remaining\": \"58\",\n  \"x-ratelimit-reset\": \"1734043412\",\n  \"x-ratelimit-used\": \"2\",\n  \"x-ratelimit-resource\": \"core\",\n  \"access-control-expose-headers\": \"ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset\",\n  \"access-control-allow-origin\": \"*\",\n  \"strict-transport-security\": \"max-age=31536000; includeSubdomains; preload\",\n  \"x-frame-options\": \"deny\",\n  \"x-content-type-options\": \"nosniff\",\n  \"x-xss-protection\": \"0\",\n  \"referrer-policy\": \"origin-when-cross-origin, strict-origin-when-cross-origin\",\n  \"content-security-policy\": \"default-src 'none'\",\n  \"vary\": \"Accept-Encoding, Accept, X-Requested-With\",\n  \"server\": \"github.com\",\n  \"x-github-request-id\": \"9234:F7B7E:4CBBDF:4F6AA8:675B59E7\"\n}\nBody: {\n  \"message\": \"Bad credentials\",\n  \"documentation_url\": \"https://docs.github.com/rest\",\n  \"status\": \"401\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:52004/__cypress/runner/cypress_runner.js:132748:72)\n    at tryCatcher (http://localhost:52004/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (http://localhost:52004/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (http://localhost:52004/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (http://localhost:52004/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (http://localhost:52004/__cypress/runner/cypress_runner.js:1724:18)\n    at _drainQueueStep (http://localhost:52004/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (http://localhost:52004/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (http://localhost:52004/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (http://localhost:52004/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://cypressapi/./cypress/e2e/APITesting/Authentication.cy.js:40:3)",
+                "diff": null
+              },
+              "uuid": "706806c9-85fe-4d2d-9033-95662eea9854",
+              "parentUUID": "e19302dd-e37c-40af-83fd-43a2e19440db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8703f40b-6e35-48c5-a922-6a0b62655ec3",
+            "b99521d2-1807-432b-97a3-49f7a98f25d6"
+          ],
+          "failures": [
+            "706806c9-85fe-4d2d-9033-95662eea9854"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1301,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
