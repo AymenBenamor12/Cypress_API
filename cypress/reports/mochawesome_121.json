@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-12T22:31:00.191Z",
+    "end": "2024-12-12T22:31:00.880Z",
+    "duration": 689,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "57edb15f-965e-4e11-84ca-c4748ca15336",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\HTTPRequest.cy.js",
+      "file": "cypress\\e2e\\APITesting\\HTTPRequest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "41a701e1-177b-423f-ab6b-bbdaf74f4a27",
+          "title": "HTTP Requests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get Call",
+              "fullTitle": "HTTP Requests Get Call",
+              "timedOut": null,
+              "duration": 105,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('GET', 'https://jsonplaceholder.typicode.com/posts/1').its('status').should('equal', 200);",
+              "err": {},
+              "uuid": "a1f2e9f3-9189-4c83-b28f-92a20c31b1b7",
+              "parentUUID": "41a701e1-177b-423f-ab6b-bbdaf74f4a27",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Post Call",
+              "fullTitle": "HTTP Requests Post Call",
+              "timedOut": null,
+              "duration": 151,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POSt',\n  url: 'https://jsonplaceholder.typicode.com/posts',\n  body: {\n    title: 'Test post',\n    body: 'This is post call',\n    userId: 1\n  }\n}).its('status').should('equal', 201);",
+              "err": {},
+              "uuid": "34cd54a3-cfdb-4fd2-96ab-ec14dbceacdd",
+              "parentUUID": "41a701e1-177b-423f-ab6b-bbdaf74f4a27",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Put Call",
+              "fullTitle": "HTTP Requests Put Call",
+              "timedOut": null,
+              "duration": 140,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'PUT',\n  url: 'https://jsonplaceholder.typicode.com/posts/1',\n  body: {\n    title: 'Test put',\n    body: 'This is put call',\n    userId: 1,\n    id: 1\n  }\n}).its('status').should('equal', 200);",
+              "err": {},
+              "uuid": "66710cd4-7335-4ff0-8d80-eda5f358dd6e",
+              "parentUUID": "41a701e1-177b-423f-ab6b-bbdaf74f4a27",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Delete Call",
+              "fullTitle": "HTTP Requests Delete Call",
+              "timedOut": null,
+              "duration": 134,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'DELETE',\n  url: 'https://jsonplaceholder.typicode.com/posts/1'\n}).its('status').should('equal', 200);",
+              "err": {},
+              "uuid": "98d45c27-623e-4d5b-9140-175646b039c0",
+              "parentUUID": "41a701e1-177b-423f-ab6b-bbdaf74f4a27",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a1f2e9f3-9189-4c83-b28f-92a20c31b1b7",
+            "34cd54a3-cfdb-4fd2-96ab-ec14dbceacdd",
+            "66710cd4-7335-4ff0-8d80-eda5f358dd6e",
+            "98d45c27-623e-4d5b-9140-175646b039c0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 530,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

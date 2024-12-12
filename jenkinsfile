@@ -1,43 +1,65 @@
 pipeline {
-    agent any  // Utiliser un agent disponible pour exécuter le pipeline
+    agent any  // Utiliser n'importe quel agent disponible pour exécuter le pipeline
+
     tools {
-        nodejs 'Cypress config' // Assurez-vous que 'Cypress config' est bien configuré dans Jenkins
+        nodejs 'Cypress config'  // Assurez-vous que 'Cypress config' est bien configuré dans Jenkins
     }
+
+    environment {
+        // Définir le chemin de base pour éviter les répétitions
+        PROJECT_PATH = "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI"
+    }
+
     stages {
-        stage('Building : Install Dependencies') {
+        stage('Install Dependencies') {
             steps {
-                bat '''
-                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npm install && npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
-                '''
+                script {
+                    echo "Installing project dependencies..."
+                    bat """
+                    cd /d "${PROJECT_PATH}" 
+                    npm install 
+                    npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
+                    """
+                }
             }
         }
 
-        stage('Testing : Run Cypress Tests') {
+        stage('Run Cypress Tests') {
             steps {
-                bat '''
-                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run
-                '''
+                script {
+                    echo "Executing Cypress tests..."
+                    bat """
+                    cd /d "${PROJECT_PATH}" 
+                    npx cypress run
+                    """
+                }
             }
         }
 
-        stage('Deploying') {
+        stage('Deploy Application') {
             steps {
-                echo "Deploy the application"
+                echo "Deploying the application (placeholder for deployment step)..."
+                // Ajoutez ici les étapes de déploiement si nécessaires
             }
         }
 
-        stage('Generate Report') {
+        stage('Generate Test Report') {
             steps {
-                bat '''
-                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run --reporter mochawesome
-                '''
+                script {
+                    echo "Generating HTML test report..."
+                    bat """
+                    cd /d "${PROJECT_PATH}" 
+                    npx cypress run --reporter mochawesome
+                    """
+                }
             }
         }
     }
+
     post {
         always {
-            // Nettoyage après l'exécution du pipeline
-            cleanWs()  // Supprime les fichiers temporaires pour nettoyer l'espace de travail
+            echo "Cleaning up the workspace..."
+            cleanWs()  // Nettoie les fichiers temporaires dans l'espace de travail Jenkins
         }
     }
 }
