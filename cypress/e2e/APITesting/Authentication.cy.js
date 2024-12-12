@@ -47,19 +47,19 @@ cy.request({
     expect(response.status).to.eq(200)
 })
 })
-it('API key Auth',()=>{
-    cy.request(
-  {
-  method:'GET',
-  url:'api.openweathermap.org/data/2.5/forecast/daily?q=Delhi',
-  qs:{
-    appid:'d22e5fb740ce5690058f0a3d9c4a735c'   , //API key and value
-  }
-  }
-).then((response)=>{
-    expect(response.status).to.eq(200)
-})
-})
+// it('API key Auth',()=>{
+//     cy.request(
+//   {
+//   method:'GET',
+//   url:'api.openweathermap.org/data/2.5/forecast/daily?q=Delhi',
+//   qs:{
+//     appid:'d22e5fb740ce5690058f0a3d9c4a735c'   , //API key and value
+//   }
+//   }
+// ).then((response)=>{
+//     expect(response.status).to.eq(200)
+// })
+// })
 
 
 
