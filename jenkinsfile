@@ -28,7 +28,7 @@ pipeline {
               echo " Deploy the application"
             }
 
-        stage('deploGenerate Report') {
+        stage('Generate Report') {
             steps {
 
                 // Générer un rapport HTML à partir du fichier JSON
@@ -44,4 +44,5 @@ pipeline {
             cleanWs()  // Supprime les fichiers temporaires pour nettoyer l'espace de travail
         }
     }
+}
 }
