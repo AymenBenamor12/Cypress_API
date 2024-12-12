@@ -2,9 +2,10 @@ pipeline {
     agent any  // Utiliser un agent disponible pour exécuter le pipeline
     tools {
         nodejs 'Cypress config' // Utilisez la version de Node.js configurée dans Jenkins (assurez-vous que la version 'Cypress config' est bien installée)
+       //choice(name:'BROWSER',choices:['chrome','edge','firefox'],description:'Choice the browser where you want to execute yours scriptes ')
     }
     stages {
-        stage('Install Dependencies') {
+        stage('Building : Install Dependencies') {
             steps {
                 // Installer les dépendances de votre projet Cypress
                 bat '''
@@ -13,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('Run Cypress Tests') {
+        stage('Testing :Run Cypress Tests') {
             steps {
                 // Lancer les tests Cypress
                 bat '''
@@ -21,11 +22,14 @@ pipeline {
                 '''
             }
         }
-
-        stage('Generate Report') {
+         stage('Deploying') {
             steps {
-               
-               
+              
+              echo " Deploy the application"
+            }
+
+        stage('deploGenerate Report') {
+            steps {
 
                 // Générer un rapport HTML à partir du fichier JSON
                 bat '''

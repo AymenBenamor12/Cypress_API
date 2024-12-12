@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-12T22:18:59.314Z",
+    "end": "2024-12-12T22:18:59.544Z",
+    "duration": 230,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fca8e1fa-9e7f-4111-bb41-45aa5fb83d52",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\PostCalls.cy.js",
+      "file": "cypress\\e2e\\APITesting\\PostCalls.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2f4bf3a9-998f-41a0-948f-2a969dfc8569",
+          "title": "api testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Appraoch3-using fixture",
+              "fullTitle": "api testing Appraoch3-using fixture",
+              "timedOut": null,
+              "duration": 197,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('tourist').then(myfixture => {\n  const requestBody = myfixture;\n  cy.request({\n    method: 'POST',\n    url: 'https://jsonplaceholder.typicode.com/posts',\n    body: requestBody\n  }).then(response => {\n    expect(response.status).to.equal(201);\n    expect(response.body.title).to.equal(requestBody.title);\n    expect(response.body.body).to.equal(requestBody.body);\n    expect(response.body.userId).to.equal(requestBody.userId);\n    // autre validation\n    expect(response.body).has.property('title', requestBody.title);\n    expect(response.body).to.have.property('body', requestBody.body);\n  });\n});",
+              "err": {},
+              "uuid": "91ea01ae-fea4-4e0d-a6eb-7388298b3c36",
+              "parentUUID": "2f4bf3a9-998f-41a0-948f-2a969dfc8569",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "91ea01ae-fea4-4e0d-a6eb-7388298b3c36"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 197,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

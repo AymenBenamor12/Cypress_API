@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-12T22:18:49.234Z",
+    "end": "2024-12-12T22:18:49.556Z",
+    "duration": 322,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3c410180-82cd-4ace-a607-6571365b8ddf",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\JSONSchemaValidation.cy.js",
+      "file": "cypress\\e2e\\APITesting\\JSONSchemaValidation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "caf31619-b9ee-48ea-9770-0a6dedb20e66",
+          "title": "Schema validation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "schema validation against response",
+              "fullTitle": "Schema validation schema validation against response",
+              "timedOut": null,
+              "duration": 290,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// it est un cas de test spécifique (ici, validation du schéma).\ncy.request({\n  method: 'GET',\n  url: 'https://fakestoreapi.com/products'\n}).then(response => {\n  const schema = {\n    \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n    \"title\": \"Generated schema for Root\",\n    \"type\": \"array\",\n    \"items\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"id\": {\n          \"type\": \"number\"\n        },\n        \"title\": {\n          \"type\": \"string\"\n        },\n        \"price\": {\n          \"type\": \"number\"\n        },\n        \"description\": {\n          \"type\": \"string\"\n        },\n        \"category\": {\n          \"type\": \"string\"\n        },\n        \"image\": {\n          \"type\": \"string\"\n        },\n        \"rating\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"rate\": {\n              \"type\": \"number\"\n            },\n            \"count\": {\n              \"type\": \"number\"\n            }\n          },\n          \"required\": [\"rate\", \"count\"]\n        }\n      },\n      \"required\": [\"id\", \"title\", \"price\", \"description\", \"category\", \"image\", \"rating\"]\n    }\n  };\n  const validate = avj.compile(schema); //check the response is according to the schema or not : Compile le schéma JSON en une fonction de validation.\n  const isvalide = validate(response.body); //Vérifie si le corps de la réponse (response.body) est conforme au schéma\n  expect(isvalide).to.be.true; //Assertion qui s'assure que la réponse respecte le schéma défini.\n});",
+              "err": {},
+              "uuid": "abde0afa-dc5d-487a-a914-ab5f4783d7f6",
+              "parentUUID": "caf31619-b9ee-48ea-9770-0a6dedb20e66",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "abde0afa-dc5d-487a-a914-ab5f4783d7f6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 290,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
