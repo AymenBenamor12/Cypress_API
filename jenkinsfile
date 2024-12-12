@@ -1,48 +1,43 @@
 pipeline {
     agent any  // Utiliser un agent disponible pour exécuter le pipeline
     tools {
-        nodejs 'Cypress config' // Utilisez la version de Node.js configurée dans Jenkins (assurez-vous que la version 'Cypress config' est bien installée)
-       //choice(name:'BROWSER',choices:['chrome','edge','firefox'],description:'Choice the browser where you want to execute yours scriptes ')
+        nodejs 'Cypress config' // Assurez-vous que 'Cypress config' est bien configuré dans Jenkins
     }
     stages {
         stage('Building : Install Dependencies') {
             steps {
-                // Installer les dépendances de votre projet Cypress
                 bat '''
                 cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npm install && npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
                 '''
             }
         }
 
-        stage('Testing :Run Cypress Tests') {
+        stage('Testing : Run Cypress Tests') {
             steps {
-                // Lancer les tests Cypress
                 bat '''
                 cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run
                 '''
             }
         }
-         stage('Deploying') {
+
+        stage('Deploying') {
             steps {
-              
-              echo " Deploy the application"
+                echo "Deploy the application"
             }
+        }
 
         stage('Generate Report') {
             steps {
-
-                // Générer un rapport HTML à partir du fichier JSON
                 bat '''
-                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run npx npx cypress run --reporter mochawesome
+                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run --reporter mochawesome
                 '''
             }
         }
     }
     post {
         always {
-            // Actions après chaque exécution du pipeline (quel que soit le statut)
+            // Nettoyage après l'exécution du pipeline
             cleanWs()  // Supprime les fichiers temporaires pour nettoyer l'espace de travail
         }
     }
-}
 }
