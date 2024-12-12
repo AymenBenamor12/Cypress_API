@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-10T19:31:16.478Z",
+    "end": "2024-12-10T19:31:17.698Z",
+    "duration": 1220,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6dae3827-eb0f-47c1-9b02-8e126c56b64c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\Authentication.cy.js",
+      "file": "cypress\\e2e\\APITesting\\Authentication.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26ac8f0b-35a5-4183-ab59-69c6cd10cf5e",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "basic Authentication",
+              "fullTitle": "Authentication basic Authentication",
+              "timedOut": null,
+              "duration": 536,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://postman-echo.com/basic-auth',\n  auth: {\n    user: 'postman',\n    pass: 'password'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.authenticated).to.eq(true);\n});",
+              "err": {},
+              "uuid": "ad78522b-6346-443c-9f68-4e9ea8dffc03",
+              "parentUUID": "26ac8f0b-35a5-4183-ab59-69c6cd10cf5e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Digest Authentication",
+              "fullTitle": "Authentication Digest Authentication",
+              "timedOut": null,
+              "duration": 137,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://postman-echo.com/basic-auth',\n  auth: {\n    username: 'postman',\n    password: 'password',\n    method: 'degest'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.authenticated).to.eq(true);\n});",
+              "err": {},
+              "uuid": "cb510465-8285-42d2-8142-0dea053571f3",
+              "parentUUID": "26ac8f0b-35a5-4183-ab59-69c6cd10cf5e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "BearerToken Auth",
+              "fullTitle": "Authentication BearerToken Auth",
+              "timedOut": null,
+              "duration": 473,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://api.github.com/user/repos',\n  headers: {\n    Authorization: `Bearer ${Token}`\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "53ed143c-723c-4baf-a67e-ca3b58e76321",
+              "parentUUID": "26ac8f0b-35a5-4183-ab59-69c6cd10cf5e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ad78522b-6346-443c-9f68-4e9ea8dffc03",
+            "cb510465-8285-42d2-8142-0dea053571f3",
+            "53ed143c-723c-4baf-a67e-ca3b58e76321"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1146,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

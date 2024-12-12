@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-10T19:08:00.290Z",
+    "end": "2024-12-10T19:08:02.178Z",
+    "duration": 1888,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6c4d319-2d6b-490f-a14a-9f10cc539f0d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\HeadersAndCookies.cy.js",
+      "file": "cypress\\e2e\\APITesting\\HeadersAndCookies.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bdd0ecf0-6f5d-4054-8026-1d451c3f227f",
+          "title": "API testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Fetching teh orders",
+              "fullTitle": "API testing Fetching teh orders",
+              "timedOut": null,
+              "duration": 1862,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://simple-books-api.glitch.me/orders',\n  headers: {\n    'Content-Type': 'application/json',\n    'Authorization': `Bearer ${authToken}`\n  },\n  cookies: {\n    'cookieName': 'mycookie'\n  }\n}).then(response => {\n  expect(response.status).to.eql(200);\n  expect(response.body).has.length(1);\n});",
+              "err": {},
+              "uuid": "3569490f-81fb-4778-83eb-2ff127a1d0ad",
+              "parentUUID": "bdd0ecf0-6f5d-4054-8026-1d451c3f227f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3569490f-81fb-4778-83eb-2ff127a1d0ad"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1862,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

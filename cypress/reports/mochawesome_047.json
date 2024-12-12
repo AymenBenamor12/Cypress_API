@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-10T19:31:01.436Z",
+    "end": "2024-12-10T19:31:01.606Z",
+    "duration": 170,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2de52c29-feea-4fb1-89ef-ec7d99afb9b3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\QueryParams.cy.js",
+      "file": "cypress\\e2e\\APITesting\\QueryParams.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2c72b792-591e-41b6-83df-ee655ece6a5e",
+          "title": "API testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Passing Query parameters",
+              "fullTitle": "API testing Passing Query parameters",
+              "timedOut": null,
+              "duration": 140,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://reqres.in/api/users',\n  qs: queryParam //queryParametre est pour que le url sera dans cette forme : https://reqres.in/api/users?page=2\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.status).equal(200);\n  expect(response.body.page).to.eq(2);\n  expect(response.body.data).has.length(6);\n  expect(response.body.data[0]).have.property('id', 7);\n  expect(response.body.data[0]).has.property('first_name', 'Michael');\n});",
+              "err": {},
+              "uuid": "cdda015a-f025-4e35-922d-a76cb5e30c31",
+              "parentUUID": "2c72b792-591e-41b6-83df-ee655ece6a5e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cdda015a-f025-4e35-922d-a76cb5e30c31"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 140,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

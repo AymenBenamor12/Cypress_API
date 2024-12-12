@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-12-10T19:30:54.802Z",
+    "end": "2024-12-10T19:30:55.449Z",
+    "duration": 647,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4f69cc2b-d76e-4df8-a96c-6044dc1afb22",
+      "title": "",
+      "fullFile": "cypress\\e2e\\APITesting\\ParsingXMLResponse.cy.js",
+      "file": "cypress\\e2e\\APITesting\\ParsingXMLResponse.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9961a89f-6a76-410e-a57d-90d0ebf300c8",
+          "title": "XML Parsing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Fetching Pet data-parsing xml response",
+              "fullTitle": "XML Parsing Fetching Pet data-parsing xml response",
+              "timedOut": null,
+              "duration": 613,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://petstore.swagger.io/v2/pet/' + petid,\n  headers: {\n    'accept': 'application/xml'\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  parser.parseString(response.body, (err, result) => {\n    expect(result.Pet.id).to.eq(petid);\n    expect(result.Pet.name).to.eq(\"Jimmy\");\n  });\n});",
+              "err": {},
+              "uuid": "c7df4cc7-91f5-4132-9b9b-213e638b9459",
+              "parentUUID": "9961a89f-6a76-410e-a57d-90d0ebf300c8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c7df4cc7-91f5-4132-9b9b-213e638b9459"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 613,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+pipeline {
+    agent any  // Utiliser un agent disponible pour exécuter le pipeline
+    tools {
+        nodejs 'Cypress config' // Utilisez la version de Node.js configurée dans Jenkins (assurez-vous que la version 'Cypress config' est bien installée)
+    }
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                // Installer les dépendances de votre projet Cypress
+                bat '''
+                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npm install && npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
+                '''
+            }
+        }
+
+        stage('Run Cypress Tests') {
+            steps {
+                // Lancer les tests Cypress
+                bat '''
+                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run
+                '''
+            }
+        }
+
+        stage('Generate Report') {
+            steps {
+               
+               
+
+                // Générer un rapport HTML à partir du fichier JSON
+                bat '''
+                cd /d "D:/QA_et_Automatisation/Testing_Auto/Cypress/CypressAPI" && npx cypress run npx npx cypress run --reporter mochawesome
+                '''
+            }
+        }
+    }
+    post {
+        always {
+            // Actions après chaque exécution du pipeline (quel que soit le statut)
+            cleanWs()  // Supprime les fichiers temporaires pour nettoyer l'espace de travail
+        }
+    }
+}
